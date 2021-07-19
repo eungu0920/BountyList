@@ -12,6 +12,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     
     let nameList = ["brook", "chopper", "franky", "luffy", "nami", "robin", "sanji", "zoro"]
     let bountyList = [33000000, 50, 44000000, 300000000, 16000000, 80000000, 77000000, 120000000]
+    // 이름과 현상금 리스트를 따로 만들어서 관리가 어렵고 새로 추가하기가 어렵다. → 수정과 재사용이 어려움 → 기술부채 발생
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Segue를 수행하기 직전에 준비. DetailViewController한테 데이터를 보냄
