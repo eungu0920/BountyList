@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="HCc-nz-tap" customClass="ListCell" customModule="BountyList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="HCc-nz-tap" customClass="ListCell" customModule="BountyList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HCc-nz-tap" id="dqI-oN-oQE">
@@ -79,13 +79,49 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="f6u-qj-NQJ" secondAttribute="bottom" id="ycf-Yq-Rr7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="4d9-M0-LSl" kind="presentation" identifier="showDetail" id="Stg-1D-zgN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="220"/>
+            <point key="canvasLocation" x="-609" y="176"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="HOy-CH-anS">
+            <objects>
+                <viewController id="4d9-M0-LSl" customClass="DetailViewController" customModule="BountyList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wXt-cq-Zuf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5f-Mu-Ddl">
+                                <rect key="frame" x="324" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hZk-rX-pd9"/>
+                                    <constraint firstAttribute="width" constant="50" id="va5-QQ-QMw"/>
+                                </constraints>
+                                <state key="normal" image="close_ic"/>
+                                <connections>
+                                    <action selector="close:" destination="4d9-M0-LSl" eventType="touchUpInside" id="eXh-Vr-hiY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JTF-qF-egb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F5f-Mu-Ddl" firstAttribute="top" secondItem="JTF-qF-egb" secondAttribute="top" constant="20" id="Er4-EY-IEH"/>
+                            <constraint firstItem="JTF-qF-egb" firstAttribute="trailing" secondItem="F5f-Mu-Ddl" secondAttribute="trailing" constant="16" id="gCT-02-idx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sCs-M4-w8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="176"/>
         </scene>
     </scenes>
     <resources>
+        <image name="close_ic" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

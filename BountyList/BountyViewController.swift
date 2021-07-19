@@ -55,7 +55,9 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     
 //    UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        Cell이 클릭되었을 때
         print("--> \(indexPath.row)")
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
 }
 
