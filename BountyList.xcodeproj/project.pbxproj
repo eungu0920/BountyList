@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F06479C226A55A34006D65E8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06479C126A55A34006D65E8 /* DetailViewController.swift */; };
+		F06479C426A57AEB006D65E8 /* BountyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06479C326A57AEB006D65E8 /* BountyInfo.swift */; };
 		F0DBBE5226A27C1D0062B041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBBE5126A27C1D0062B041 /* AppDelegate.swift */; };
 		F0DBBE5426A27C1D0062B041 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBBE5326A27C1D0062B041 /* SceneDelegate.swift */; };
 		F0DBBE5926A27C1D0062B041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0DBBE5726A27C1D0062B041 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		F06479C126A55A34006D65E8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F06479C326A57AEB006D65E8 /* BountyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BountyInfo.swift; sourceTree = "<group>"; };
 		F0DBBE4E26A27C1D0062B041 /* BountyList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BountyList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DBBE5126A27C1D0062B041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0DBBE5326A27C1D0062B041 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				F0DBBE5126A27C1D0062B041 /* AppDelegate.swift */,
 				F0DBBE5326A27C1D0062B041 /* SceneDelegate.swift */,
 				F0DBBE6526A27D250062B041 /* BountyViewController.swift */,
+				F06479C326A57AEB006D65E8 /* BountyInfo.swift */,
 				F06479C126A55A34006D65E8 /* DetailViewController.swift */,
 				F0DBBE5726A27C1D0062B041 /* Main.storyboard */,
 				F0DBBE5A26A27C1E0062B041 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06479C426A57AEB006D65E8 /* BountyInfo.swift in Sources */,
 				F0DBBE5226A27C1D0062B041 /* AppDelegate.swift in Sources */,
 				F0DBBE6626A27D250062B041 /* BountyViewController.swift in Sources */,
 				F0DBBE5426A27C1D0062B041 /* SceneDelegate.swift in Sources */,
