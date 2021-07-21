@@ -7,8 +7,8 @@
 
 import UIKit
 
-class BountyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-//    UITableViewDataSource, UITableViewDelegate
+class BountyViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+//    UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
     
 //    --- MVVM - Design Pattern ---
 //    Model
@@ -46,7 +46,38 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+//    UICollectionViewDataSource
+//    몇개를 보여줘야하는가?
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numOfBountyInfoList
+    }
     
+//    Cell은 어떻게 표현애햐 하는가?
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as? GridCell else {
+            return UICollectionViewCell()
+        }
+        let bountyInfo = viewModel.bountyInfo(at: indexPath.item)
+        
+        cell.update(info: bountyInfo)
+        
+        return cell
+    }
+
+
+//    UICollectionViewDelegate
+//    Cell이 클릭되었을 때 어떻게 해야하는가?
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("--> \(indexPath.item)")
+        performSegue(withIdentifier: "showDetail", sender: indexPath.item)
+    }
+
+    
+//    UICollectionViewDelegateFlowLayout
+//    Cell Size를 계산해야함 → 다양한 디바이스에서 일관적인 디자인을 보여주기 위함
+    
+    
+/*
 //    UITableViewDataSource
 //    TableView의 Connections inspector에서 View Controller와 DataSource와 Delegate연결
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +103,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
         print("--> \(indexPath.row)")
         performSegue(withIdentifier: "showDetail", sender: indexPath.row) // Segue를 수행 - 직전에 prepare이 수행됨. sender에 indexPath의 번호를 전달
     }
+ */
 }
 
 class ListCell: UITableViewCell {
@@ -86,6 +118,10 @@ class ListCell: UITableViewCell {
     }
 }
 
+    
+
+    
+    
 class BountyViewModel {
     let bountyInfoList: [BountyInfo] = [
         BountyInfo(name: "brook", bounty: 33000000),
@@ -115,4 +151,16 @@ class BountyViewModel {
     }
     
     
+}
+
+class GridCell: UICollectionViewCell {
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var bountyLable: UILabel!
+            
+    func update(info: BountyInfo) {
+        imgView.image = info.image
+        nameLabel.text = info.name
+        bountyLable.text = "\(info.bounty)"
+    }
 }
