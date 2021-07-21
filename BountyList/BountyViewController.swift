@@ -75,7 +75,14 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
     
 //    UICollectionViewDelegateFlowLayout
 //    Cell Size를 계산해야함 → 다양한 디바이스에서 일관적인 디자인을 보여주기 위함
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing: CGFloat = 10
+        let textAreaHeight: CGFloat = 65
+        
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2  // bounds하면 view의 사이즈를 알 수 있음
+        let height: CGFloat = width * 10/7 + textAreaHeight
+        return CGSize(width: width, height: height)
+    }
     
 /*
 //    UITableViewDataSource
