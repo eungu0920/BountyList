@@ -32,11 +32,8 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         if segue.identifier == "showDetail" {
             let vc = segue.destination as? DetailViewController
             if let index = sender as? Int {
-                
                 let bountyInfo = viewModel.bountyInfo(at: index)
-                
                 vc?.viewModel.update(model: bountyInfo)
-
             }
         }
     }
@@ -44,7 +41,6 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     
 //    UICollectionViewDataSource
 //    몇개를 보여줘야하는가?
@@ -58,12 +54,9 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
             return UICollectionViewCell()
         }
         let bountyInfo = viewModel.bountyInfo(at: indexPath.item)
-        
         cell.update(info: bountyInfo)
-        
         return cell
     }
-
 
 //    UICollectionViewDelegate
 //    Cell이 클릭되었을 때 어떻게 해야하는가?
@@ -72,7 +65,6 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         performSegue(withIdentifier: "showDetail", sender: indexPath.item)
     }
 
-    
 //    UICollectionViewDelegateFlowLayout
 //    Cell Size를 계산해야함 → 다양한 디바이스에서 일관적인 디자인을 보여주기 위함
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -83,52 +75,8 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         let height: CGFloat = width * 10/7 + textAreaHeight
         return CGSize(width: width, height: height)
     }
-    
-/*
-//    UITableViewDataSource
-//    TableView의 Connections inspector에서 View Controller와 DataSource와 Delegate연결
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numOfBountyInfoList
-//        array의 갯수를 리턴
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
-            return UITableViewCell()
-//            nil이 아닌경우에 ListCell로 캐스팅 cell.
-        }
-    
-        let bountyInfo = viewModel.bountyInfo(at: indexPath.row)
-        cell.update(info: bountyInfo)
-        
-        return cell
-    }
-    
-//    UITableViewDelegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        Cell이 클릭되었을 때
-        print("--> \(indexPath.row)")
-        performSegue(withIdentifier: "showDetail", sender: indexPath.row) // Segue를 수행 - 직전에 prepare이 수행됨. sender에 indexPath의 번호를 전달
-    }
- */
 }
 
-class ListCell: UITableViewCell {
-    @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var bountyLable: UILabel!
-    
-    func update(info: BountyInfo) {
-        imgView.image = info.image
-        nameLabel.text = info.name
-        bountyLable.text = "\(info.bounty)"
-    }
-}
-
-    
-
-    
-    
 class BountyViewModel {
     let bountyInfoList: [BountyInfo] = [
         BountyInfo(name: "brook", bounty: 33000000),
@@ -145,7 +93,6 @@ class BountyViewModel {
         let sortedList = bountyInfoList.sorted { prev, next in
             return prev.bounty > next.bounty
         }
-        
         return sortedList
     }
     
@@ -156,8 +103,6 @@ class BountyViewModel {
     func bountyInfo(at index: Int) -> BountyInfo {
         return sortedList[index]
     }
-    
-    
 }
 
 class GridCell: UICollectionViewCell {
